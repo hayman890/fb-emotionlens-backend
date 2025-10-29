@@ -29,3 +29,8 @@ def root():
 def get_posts():
     posts = list(collection.find({}, {"_id": 0}))
     return posts
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
