@@ -8,6 +8,10 @@ load_dotenv()
 
 app = FastAPI()
 
+@app.get("/")
+async def root():
+    return {"message": "Backend is alive and healthy!"}
+
 # Allow frontend requests (CORS)
 app.add_middleware(
     CORSMiddleware,
